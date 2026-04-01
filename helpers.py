@@ -1,6 +1,3 @@
-import itertools
-
-
 def parse_days(days: str):
     result = set()
     i = 0
@@ -76,8 +73,12 @@ def score_schedule(schedule):
             if gap > 0:
                 total_gaps += gap
 
-    return days_on_campus * 100 + total_gaps - avg_start * 0.1
-
+    return {
+        "score": days_on_campus * 100 + total_gaps - avg_start * 0.1,
+        "days_on_campus": days_on_campus,
+        "total_gaps_minutes": total_gaps,
+        "avg_start_minutes": avg_start
+    }
 
 def summarize_schedule(schedule):
     return [

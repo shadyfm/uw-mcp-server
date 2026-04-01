@@ -262,8 +262,13 @@ def register_tools(mcp, API_KEY, BASE_URL):
         result = {
             "term": term_code,
             "courses": courses,
-            "valid_schedules": [summarize_schedule(s[1]) for s in valid_schedules]
-        }
+            "valid_schedules": [
+                {
+                    "sections": summarize_schedule(s),
+                    **score_schedule(s)
+                }
+                for s in valid_schedules
+            ]        }
 
         if not valid_schedules:
             all_sections = {}
