@@ -37,7 +37,14 @@ A Model Context Protocol (MCP) server that connects Claude to the University of 
    UW_API_KEY=your_api_key_here
    ```
 
-5. Add the server to your Claude config (`~/.claude/claude_desktop_config.json`):
+5. Add the server to Claude:
+
+   **Claude Code:**
+   ```bash
+   claude mcp add uw-mcp-server python /absolute/path/to/uw-mcp-server/main.py
+   ```
+
+   **Claude Desktop** — add to `~/.claude/claude_desktop_config.json`:
    ```json
    {
      "mcpServers": {
